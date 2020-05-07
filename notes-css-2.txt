@@ -1,0 +1,83 @@
+CSS-NOTES-2:
+
+
+THE CSS BOX MODEL:
+(REFER CSS INDEX 2 IN THIS DIRECTORY)
+PADDING:
+It is a very important aspect of designing elements in your website in detail. In order to observe padding closely, change the background color of any text to
+any color other than the default white.We see that a strip is formed around the text that spans the entire width of the screen.The space between the BORDER OF THIS
+STRIP AND THE TEXT is called PADDING.It is much similar to cellpadding in tables.So, remember: SPACE BETWEEN BORDER OF STRIP AND THE TEXT IS CALLED PADDING.
+We can easily manipulate padding ON ALL SIDES by using the "padding" property.It takes in the number of pixels or can also take in the percentage of screen size.
+Syntax:
+h2 {background-color: yellow;---->For clear visibility of the strip.
+	padding:20px;
+	}
+CAUTION:
+We can also manipulate the padding on individual sides by using the "padding-top", "padding-left", "padding-right", "padding-bottom" properties.They can also accept
+pixels or percnetages of screen size.Syntax:
+h2 {background-color: yellow;---->For clear visibility of the strip.
+	padding-left:20px;
+	padding-top:60px;
+	}
+The above code will add padding of 20px from left and a padding of 60px from top.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BORDER:
+It is another thing that you need to consider while designing webpages.The border as the name suggests-- IS THE LINE SURROUNDING THE STRIP THAT WE HIGHLIGHTED
+PREVIOUSLY.In order to modify borders, WE NEED TO ALWAYS SPECIFY 3 PROPERTIES-- otherwise the BORDER WILL NOT BE CREATED.They are:
+1>"border-size"--In pixels.It is essentially the weight of the border.We can specify it in either pixels or percentages.
+2>"border-color"--As with colors, we can either specify the color textually or by using the RGB values.
+3>"border-style"-- We can specify the type of borders like -- "dashed" or "dotted".All the styles can be found here:https://www.w3schools.com/cssref/pr_border-style.asp
+Syntax:
+h2 {background-color:orange;---->For clear visibility of the strip.
+	border-color:red;
+	border-width:4%;
+	border-style:solid;
+	}
+CAUTION -- SHORTHAND NOTATION:
+Instead of specifying the border each time using 3 different keywords, we can simply use a shorthand notation whose syntax is as follows:
+border : border_color_here    border_size_here     border_style_here;   <---The order is not important.
+Example:
+h2 {border : red 10px dotted;
+	}
+CAUTION -- INDIVIDUAL BORDERS:
+Instead of modifying the entire border, we can also change borders on each individual side.This can be done using "border-top", "border-left",
+"border-right", "border-bottom" properties.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MARGIN:
+This is the last aspect of the "CSS BOX MODEL". Consider 2 paragraphs:
+<p> HELLO THERE!</p>
+<p>F*ck You!></p>
+By default, these paragraphs will be displayed with a little space between them. THIS SPACE IS CALLED MARGIN. Again let us highlight these paragraphs using
+"background-color" (say orange). We shall now see 2 orange colored strips surrounding these paragraphs. THE SPACING IN BETWEEN THESE STRIPS IS CALLED "MARGIN".
+We can adjust the overall margin by using the "margin" property.(IT IS 10 PX BY DEFAULT).It takes either pixels or percentages as parameters.
+Syntax:
+p {margin: 4px;
+   }
+  This shall separate all paragraphs on your webpage by 4 pixels.
+  CAUTION -- INDIVIDUAL MARGINS:
+  Instead of modifying the entire margin on all sides, we can also change borders on each individual side.This can be done using "margin-top", "margin-left",
+"margin-right", "margin-bottom" properties.
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+WIDTH AND HEIGHT:
+WIDTH:
+Width is the space from left to right that the element takes up on the page. Padding is the space around the content of the element (all four sides)
+but inside of the border.
+Using a larger width you would just stretch the element out further and the height would not change.
+Using a larger padding could make the element have a larger scale which would adjust both the width and the height.
+
+HEIGHT:
+Both height and padding inherently control the height of an element.
+
+Use height when you need a fixed container height.
+PRO: Useful for when you don't want the container to stretch vertically.
+CON:
+o Becomes brittle as you change properties like font-size, margin, padding, etc.
+o Increasing sizes can cause contents to hide or overflow.
+o Changing a font-size, for example, can cause a cascade change (you have to also change the margins/padding, or size properties of sibling/child elements).
+
+Use padding when you don't need a fixed container height, but want to add whitespace.
+PRO: Easier to change font-sizes, margins, paddings, and add additional content to the container that may increase the container's vertical size.
+CON:
+o Adding content/increasing size properties will cause the container to stretch vertically, which is undesirable in some scenarios.
+o Not good for scenarios where vertical space is limited or needs to be controlled.
+

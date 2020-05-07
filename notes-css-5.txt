@@ -1,0 +1,216 @@
+CSS-NOTES-5:
+
+POSITIONING OF ELEMENTS:
+
+Just to recap, we have studied about tht <div> tags. They are used to position the elements on the screen wherever we wanted, instead of one below the other.
+They, in coordination with the concept of "id's" are the most helpful tools for positioning the element at whatever location on the screen.
+In order to specify the mode of entering positions, we used the "position" property and assigned its value as "absolute".
+Then we used the "top", "bottom", "left", "right", properties to specify the coordiates of the element.
+We shall now study the different types of positionings in css.
+
+ABSOLUTE POSITIONING:
+Absolute positioning, as the name suggests is used to specify absolute position values. In other words, it gives the user full control over the screen.
+The user has absolute freedom to place any of his elements at whatever loaction on the screen.There is however a serious drawback to this type of posiitoning
+mode. Since, the user has complete control over the positioning of the elements, there are a lot of chances of the elements overlapping on the screen.
+The "absolute positioning" mode tells the browser to cast a blind eye to the positioning even if overlaps occur. It just places elements at exactly whatever
+locations which are requested by the user.
+--------------------------------------------------------------------------------------------------------------------------------------
+RELATIVE POSITIONING:
+
+This concept is a wee bit difficult to understand. This is because, whenever we use relative positioning, looking at the output at the first glance will surely
+confuse you.As discussed earlier, in absolute positioning, we can place an element absolutely wherever we wanted. This means that if we specify top=30 and
+left=40. It will move the element 30px down and 40px right FROM THE TOP LEFT CORNER, which is the ACTUAL ORIGIN. SO, IN ABSOLUTE POSITIONING ORIGIN=(0,0).
+
+In relative positioning however, the element is placed at a position RELATIVE TO WHERE IT WOULD ORIGINALLY BE IF THE POSITIONING RULES WERE NOT APPLIED.
+So, if we have 3 paragraphs, say p1, p2, p3. If we dont apply any styling/posiitoning rule to them, they will by default be placed one below the other.Kinda like 
+this:
+p1
+
+p2 <---This location
+
+
+p3.
+
+NOW, if we apply relative positioning to say p2, and move it top=30 and left=40, then it will be positioned 30px down and 40px right FROM THE MARKED LOCATION ,
+which is taken as the NEW ORIGIN FOR RELATIVE POSITIONING.
+SO, ALL ELEMENTS IN RELATIVE POSITIONING WILL BE PLACED RELATIVE TO WHERE THEY WOULD'VE BEEN IF THE RELATIVE POSITIONING RULE WAS NOT APPLIED.
+There is however a serious drawback to this type of posiitoning mode. Now that we have positioned p2 to a desired location from its default one using relative
+positioning, there is an EMPTY SPACE WHERE p2 WOULD'VE BEEN.
+The p3 element doesn't automatically go up once p3 has been positioned.
+--------------------------------------------------------------------------------------------------------------------------------------
+FIXED POSITIONING:
+One good use of fixed positioning that I could think of is if you had a picture or some background to your webpage that you didn't want to repeat but you 
+also didn't want it to run out when they scroll down. Well, if you used fixed positioning for the background it will never repeat or go away when they scroll down. Just something to think about.﻿
+
+The fixed positioning is usually used for commercial claiming on websites. You can not scroll them out until you press the close button(X).
+
+By the above uses, you kinda have a rough idea about what fixed posiitoning is. It is very very similsr to absolute positioning in the sense that it SETS THE
+ORIGIN BACK TO THE TOP LEFT CORNER OF THE SCREEN (0,0) and places all your elements at their desired location as specified.
+THE ONLY DIFFERENCE IS THAT IN ABSOLUTE POSITIONING, THE ELEMENT WOULD BE FLUSHED OUT OF THE SCREEN ONCE THE USER SCROLLED DOWN, BUT IN FIXED POSITIONING,
+THE ELEMENT STAYS ON THE SCREEN IRRESPECTIVE OF WHETHER THE USER SCROLLS DOWN OR NOT.
+As the name suggests, it is FIXED on the screen.
+
+The youtube search bar, the facebook chat side pane, the facebook top banner, etc all use fixed positioning and remain in the same position irresepective of 
+whether the user scrolls down or not.
+--------------------------------------------------------------------------------------------------------------------------------------
+MAX HEIGHT AND WIDTH:
+Sometimes we also need the images in our webpage to not exceed a certain dimension (ie height or width). This can be done using the max-height and max-width
+properties. We can specify their values either in pixels or in percentages.
+--------------------------------------------------------------------------------------------------------------------------------------
+INTRODUCTION TO FORMS:
+This essentially is a part of xhtml and not strictly css, but we shall cover it here itself:
+Forms are the grey area between xhtml web designing and actual web programming. Forms allow us to accept user input in a variety of ways.This can be using 
+text boxes, radio buttons, drop down lists, etc. We here shall learn only the declaration and styling aspect of forms. The process where we store the user input
+in a database, and manipulate it to generate a tangible result is covered in WEB- PROGRAMMING.
+
+In order to write any element of forms, we need to include them between special tags called <form> ... </form>.All of our form elements like drop down lists,
+radio buttons, etc are declared inside this <form> ... </form> tag.
+
+TEXT BOXES:
+The most simplest way in which a website can interact with a user is with the help of text boxes. In order to declare ANY element  regarding forms, we
+need a special tag called <input /> tag. As you can see, it is a single tag, meaning that it has no ending tag.
+The input tag takes in ONE COMPULSORY ATTRIBUTE called: "type" and we set it to whatever type of input we are going to take from the user.(In this case-- a text
+box).
+HERE : type="text"
+It also takes in ANOTHER COMPULSORY ATTRIBUTE called "name". This is used to give a name to that particular text box, in case there are many in our webpage.
+The use of the "name" attribute will be understood more clearly when we learn javascript. Basically, it is used to identify an input.
+Here name="any_name_you_want"
+
+It can also take in another attribute called "size" and is used to manipulate the size of the text box. If we set it to a larger value, the text box will be
+longer and vice versa.The unit of measurement is actually the umber of characters that will fit into the box without overflow.` 
+
+In order to limit the number of characters that the user can enter, we can also use another attribute called "maxlength". The value we set it to is the maximum
+number of characters that the user can enter. 
+
+In order to populate the box with a particular text by default, we use the "value" attribute. The moment the webpage is accessed the text box is automatically
+filled with that particular value.The value text will remain in the text box EVEN WHEN THE USER CLICKS ON THE TEXT BOX.
+
+In order to have a placeholder to the text box, ie the text box is filled with transluscent text which disappears the moment the user clicks the text box,
+(eg. in microsoft live login page, it is seen someone@example.com), we use the "placeholder" tag.
+
+FINAL TAG:
+<input type="text" name="username" size="10" maxlength="5" value="your text here" />
+--------------------------------------------------------------------------------------------------------------------------------------
+RADIO BUTTONS:
+
+Radio buttons are exclusively used when the user can select only one of the available choices an not 2 or 3 or all. This can be done by giving the radio buttons
+the same name in the "name" attribute.Thus, IF A NUMBER OF RADIO BUTTONS HAVE THE SAME NAME ATTRIBUTE, THEN ONLY ONE OF THEM CAN BE SELECTED AND NOT ALL.
+
+The input tag takes in ONE COMPULSORY ATTRIBUTE called: "type" and we set it to whatever type of input we are going to take from the user.(In this case-- a radio 
+button).
+HERE : type="radio"
+It also takes in ANOTHER COMPULSORY ATTRIBUTE called "value". Since we are creating as many radio button tags as the number of choices, we need to assign that 
+'to what choice does this radio button belong'. This is specified inside value. This is especially useful for web programming as in javascript programs, we
+can store what choice the user has taken by the value attribute. It is essentially, the "back-end" of the radio button.
+
+A NAME IS SIMILAR TO A DATATYPE AND A VALUE IS SIMILAR TO AN INSTANCE OF THAT DATATYPE (A VARIABLE).
+FINAL TAG:
+Select sex:
+
+male <input type="radio" name="sex" value="male" />
+female <input type="radio" name="sex" value="female" />
+--------------------------------------------------------------------------------------------------------------------------------------
+CHECKBOXES:
+ Checkboces perform the exact opposite function of radio buttons. They allow the user to select as many of the available choices as he wants. This is particularly
+ useful in-case the user wants to customise his input (eg. selecting toppings on pizzas)
+
+The input tag takes in ONE COMPULSORY ATTRIBUTE called: "type" and we set it to whatever type of input we are going to take from the user.(In this case-- a check
+box). 
+HERE : type="checkbox"
+It also takes in ANOTHER COMPULSORY ATTRIBUTE called "value". Since we are creating as many checkbox tags as the number of choices, we need to assign that 
+'to what choice does this checkbox belong'. This is specified inside value. This is especially useful for web programming as in javascript programs, we
+can store what choice the user has taken by the value attribute. It is essentially, the "back-end" of the checkbox.
+
+A NAME IS SIMILAR TO A DATATYPE AND A VALUE IS SIMILAR TO AN INSTANCE OF THAT DATATYPE (A VARIABLE).
+
+FINAL TAG:
+Select food:
+
+apple <input type="checkbox" name="food" value="apple" />
+sandwich <input type="checkbox" name="food" value="sandwich" />
+french fries <input type="checkbox" name="food" value="frenchfries" />
+salad <input type="checkbox" name="food" value="salad" />
+--------------------------------------------------------------------------------------------------------------------------------------
+DROP-DOWN LISTS:
+It is a compact form of a radio button. If a user has a large number of choices, it is easier to represent them in a drop-down list instead of providing the
+user with 800 radio buttons.It takes up less space and gives more funtionality.
+
+A drop down list is enclosed in between <select> ... </select> tags.All the different elements go inside these <select> tags.
+The <select> tags take in A COMPULSORY ATTRIBUTE called "name". This is used to give a name to that particular dropdown list, in case there are many in our
+webpage.
+The use of the "name" attribute will be understood more clearly when we learn javascript. Basically, it is used to identify an input.
+Here name="any_name_you_want"
+
+The different choices are encased in between <option> ... </option> tags.
+The <option> tags take A COMPULSORY ATTRIBUTE called "value". Since we are creating as many option tags as the number of choices, we need to assign that 
+'to what choice does this option belong'. This is specified inside value. This is especially useful for web programming as in javascript programs, we
+can store what choice the user has taken by the value attribute. It is essentially, the "back-end" of the drop-down list.
+
+A NAME IS SIMILAR TO A DATATYPE AND A VALUE IS SIMILAR TO AN INSTANCE OF THAT DATATYPE (A VARIABLE).
+--------------------------------------------------------------------------------------------------------------------------------------
+TEXT AREAS:
+Whenever you want the user to enter more than a single line of text or more than a single phrse, we use the concept of text areas. These are usually used 
+when you are entering delivery addresses, or your own bio, or even some description about a photo on Facebook.
+
+It can be realised using a tag called "textarea" (<textarea>) and a similar ending tag (</textarea>).
+It also takes another attribute which is the name of the text area.We can also include a defauult text in between these tags-- the text area
+will be already filled with the text that you will write inside.
+
+We can also manipulate the size of the text area. We can do so by using the attributes "rows" and "cols". Try extperimenting with these attributes.
+The exact size of a row and a column is not determinned, it differs from browser to browser.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+PASSWORDS AND UPLOAD BUTTONS:
+This is another important aspect of form building. It is essential that whenever you ask a user to fill in his username and password, the password must
+be obscured from view. The user must not be able to see the password that he is currently entering.
+In order to realise this we use the "input" tag along with its attribute "password".
+The password tag takes another compulsory attribute called "name". It specifies WHICH OF THE PASSWORD FIRLDS THAT WE ARE CURRENTLY REFFERING TO.
+This becomes especially useful in javascript.
+eg.
+<input type="password" name="pass1" />
+
+We can also use other attributes similar to the text box like "maxlength" and "size" to specify the maximum characters that a password can contain or
+to specify the size of the password input box.
+
+
+In order to ask the user to upload a file, we can use the "file" attribute of the "input" tag. It takes another compulsory attribute called "name".
+It is used to differentiate between the files entered by the user in case more than one files have been entered.It only takes these two attributes AND 
+NOTHING ELSE (as anything else doesnt make any sense).
+In order to control the size of the file that the user might upload, we shall have to do this using javascript or php, or any other web programming language.
+We cannot control the size from here.
+<input type="file" name="profilepic" />
+
+This will create an upload button on your webpage. On clicking this button, your browser will directly open the windows file explorer to attach (upload)
+a file.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+SUBMIT BUTTONS:
+Well, this is the last form element that we'll learn about. After the iser has successfully entered the information, we need to record, or store the entered
+information.This entered information is stored on the web servers of the website. In order to do so, we need to provide a submit button to the user.
+This can be reakised by using the attribute "submit" with the "input" tag. The tag takes a compulsory attribute called "value" which specifies what value 
+will appear on the button.
+
+<input type="submit" value="Submit!" />
+
+In order to push the entered information onto your website, we need two more attributes with the "form" tag.They are:
+1> ACTION: This attribute will specify the name of the file or the program which will perform some action (like storing the entered information somewhere)
+			regarding the infromation that the user has entered in the form.We typically write the file name as the value of this attribute.
+			
+2> METHOD: This tag can have one of two possible values:
+			i>Get
+			ii>Post
+			It specifies the manner in which the browser sends the entered data to the file specified in the action tag.
+			
+			For the time being, remember that "post" is more secure than "get". The use of these methods will be extensively elaborated wen we shall learn
+			php or javascript.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

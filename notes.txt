@@ -1,0 +1,162 @@
+use <!-- insert comments here-->
+This  is how you use comments in xhtml.
+--------------------------------------------------------------------------------------------------------------------------------------
+LINE BREAKS:
+XHTML is white space insensitive. So whenever you are typing out paragraphs, html ignores the white spaces and displays the words as it is...
+We therefore need to explicitly specify the line breaks to it by using the line break tag:
+<br />
+This is a single tag... Meaning that it has no opening and closing variants.Such type of tags have a specific syntax as follows:
+<tag_name />
+
+HORIZONTAL RULES:
+In some cases we also need a separator for our website in case we need to distinguish amongst different elements.In such a case we use a tool
+called a "Horizontal Rule".It again is a single tag and using the syntax specified earlier... The horizontal rule can be written as:
+<hr />
+--------------------------------------------------------------------------------------------------------------------------------------
+BOLD, ITALICIZE, UNDERLINE:
+Like any normal text editor we can also display our text in bold, italics and underline it...
+The following tags will help you do it:
+BOLD:   <b> </b> OR <strong> </strong>
+ITALICIZE: <i> </i> OR <em> </em>(It stands for emphasis)
+UNDERLINE: <u> </u>
+
+--------------------------------------------------------------------------------------------------------------------------------------
+ADDING HYPERLINKS:
+In order to insert links to your webpage, you use the anchor tag.
+<a> </a>
+The anchor tag always has some attributes...Attributes are something which describe a tag in detail.
+For example <a href="enter the site name"> gives a hyperlink refernce to the anchor tag.The text that you input inside this tag will be hyperlinked to the
+href'd site.The site can be another website or it can be another page in your desktop, or it can also be the same page.(essentially refreshing the page)
+
+CAUTION: always use http:// before referencing a website. Otherwise it does not work.
+----------------------------------------------------------------------------------------------------------------------------------------
+We can also link to contents of the same webpage, so that the user doesnt have to scroll down too much.
+Simply clicking on the link will automatically scroll down to the desired destination.
+In order to do so, we need to create a target at the desired destination.For this we again use the anchor tag at the desired destination and have an attribute
+'name' to it.
+Mind you, we need nothing inside the anchor tag at the destination.We can give any name to the target destination. This will not be dislpayed outside.It only 
+serves as a refernce as to "where to scroll when I click a particular hyperlink".
+eg. <a name="write name of target destination here"></a>
+
+At the top of your webpage, where you have to write the navigation to the destination, we follow the following syntax:
+<a href="# name of the target destination">name of the part where user has to click</a>
+----------------------------------------------------------------------------------------------------------------------------------------
+EMAIL ADDRESSES:
+In order to add email addresses to hyperlinks we write the word mailto: before the email address.The rest of the syntax is similar to linking a website.
+eg. <a href ="mailto:saumitrasapre69@gmail.com">email me</a>
+This however is not the preferred way for adding email addresses... This is because it directly opens the default mail client that the computer is using (and
+most of the time, it is outlook).
+For simplicity, we should just mention our email address in a simple plaintext that the user can copy and paste in his own preferred mail client.
+
+TOOL TIPS:
+A tool tip is a brief description of what a hyperlink does. The user can see it when he hovers the mouse over the hyperlink.
+For this we use the attribute 'title'.
+eg. <a href="http://www.google.com" title="Google">Click me!</a>
+----------------------------------------------------------------------------------------------------------------------------------------
+ADDING IMAGES:
+
+Images can be added using the 'img' tag.It is a single tag... so it doesnt need an ending tag (it would be quite absurd if it did).
+eg. <img />
+img has a compulsory attribute called 'src' which stands for source.It indicates the source of the image.
+eg. <img src="cat.jpg" />There is no need to specify the source of the image if the image and the webpage exist in the same directory.
+We can also adjust the size of the images by using another attribute called "height" or "width".We can specify the height of the image by either using pixels
+or we can also specify the size in terms of the percentage of the screen.
+NOTE: Including a larger size images and then shortening it doesnt reduce the loading time of the website.The browser simply loads the larger sized image and 
+resizes it according to the programmed dimensions.
+The syntax is as follows:
+<img src="cat.jpg" height="150" />
+----------------------------------------------------------------------------------------------------------------------------------------
+To convert images to hyperlinks... write the anchor tag outside the img tag, and then make the necessary href changes.
+eg. <a href="http://www.google.com"><img src="cat.jpg" /></a>
+----------------------------------------------------------------------------------------------------------------------------------------
+TABLES:
+It is now safe to begin dealing with tables.Before we begin charting our own tables... we need a table tag:
+<table> </table>
+All of our information goes inside these "table" tags.
+There are two tags associated with tables...
+<tr> </tr>--- This stands for "Table row".The number of <tr> tags we specify... Those many number of rows will be there in our table.
+<td> </td>---This stands for "Table data". The actual information to be entered will go inside the <td> tags. This can be considered as the columns of our table.
+			Usually the <td> tag goes inside the <tr> tag. So, for example if we specify:
+			<tr>
+			<td>Hello</td>
+			<td>World</td>
+			</tr>
+			<tr>
+			<td> Big</td>
+			<td>Chungus</td>
+			</tr>
+			This means that there is a 2x2 matrix in which there are 2 rows-- and in each row there are 2 columns having the data "Hello" World"-In the upper
+			two columns. And the data "Big" "Chungus" in the lower two columns.
+This will probably look like:
+			Hello  World
+			Big	   Chungus
+BORDERS:
+If we just write the table using the method discussed above, then the table will indeed be created, but will have no border. This means that it will look like
+some random text floating around on the screen This can be solved using the table border.
+The table tag takes in an attribute called "border", And we can specify the number of pixels thick the border will be...The syntax is as follows:
+<table border="No_of_pixels"> ... </table>
+
+HEADERS:
+A table header is used to specify the title of the column that the data goes into. It is used in a similar way as to how we would use the <td> tag.
+The syntax for this tag is:
+<th> </th>
+The content that goes into these tags will be BOLD and CENTERED, so as to specify the title of the forthcoming columns.
+Of course this tag is preferrably used for the columns of the first <tr> tag, as only they will signify what the column heads.
+There however is no restriction as such to use these tags inside any of the <tr> tags in your webpage.  
+
+COLSPAN:
+Sometimes, our table is not a perfect grid.Sometimes, there may be some rows with 2 columns and some rows with 3 columns and some other rows with only one column...
+This problem can be solved by using the "colspan" attribute that goes along with <td> or <th> tags.
+We decide the no of columns that "that" particular column should span so that the table does not look like a crooked staircase.This helps to improve the
+aesthetic appeal of the table.Syntax:
+<td colspan="No_of_columns_to_be_occupied">...</td>
+
+ROWSPAN:
+It is a similar concept to colspan.Here we specify the number of rows that a particular cell should take.If suppose we specify rowspan=2.Then it means that
+that particular cell will occupy 2 rows and the next<tr> statement will have one less <td> than the previous row for a balanced table.This is because the first
+and the second entry of the first column has been consumed using rowspan.
+<td rowspan="No_of_rows_to_be_occupied">...</td>
+
+WIDTH:
+The <table> tag takes another attribute called "width".As the name suggests, it is used to specify the width of the table.There are 2 ways of specifying the width of the table.
+1>Statically, ie by using pixels.Just specify a number as the width and the browser will dedicate that many number of pixels to the table.
+  Syntax: <table width="No_of_pixels"> ... </table>
+2>Dynamically, ie by using percentages. We specify the width as a percentage of the screen size. Thus, whenever the user minimises the window, the tables
+  adjusts accordingly.This is the most preferred way of specifying the width of the table because we can develop a website for a number of devices with different
+  screen sizes.
+  Syntax: <table width="Percentage_of _screen_size"> ... </table>
+  
+CELLPADDING:
+Cellpadding is another attribute that the <table> tag takes. It can be imagined as applying some foam padding to the cells of the table.The cell 
+contents become centered by those many number of pixels from the borders of all the cells of the table.
+Syntax: Syntax: <table cellpadding="No_of_pixels_from_the_border"> ... </table>
+
+CELLSPACING:
+Cellspacing is another attribute that the <table> tag takes.It is  the distance between two cells of the table.Cellpadding is the INTRA-CELL distance,
+whereas cellspacing is the INTER-CELL distance. The cells will get separated by those many amount of pixels that are specified in the cellspacing.
+Syntax: Syntax: <table cellspacing="No_of_pixels_between_the_cells"> ... </table>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+LISTS:
+There are basically 2 types of lists:
+1>Ordered List:
+In this type of list, the elements are numbered ie ordered.We specify the list items and the browser automatically numbers them for us.
+The entire list is enclosed between the "Ordered List"(<ol> </ol>) tag.And we specify the elements of the list using the "List Item" (<li> </li))tag.
+Syntax:
+<ol>
+<li>Item_1</li>
+<li>Item_2</li>
+<li>Item_3</li>
+</ol>
+
+1>Unrdered List:
+In this type of list, the elements are not numbered and are simply bulleted ie unordered.We specify the list items and the browser automatically 
+bullets them for us.
+The entire list is enclosed between the "Unordered List"(<ul>  </ul>) tag.And the specify the elements using the "List Item"(<li> </li>) tag.
+Syntax:
+<ul>
+<li>Item_1</li>
+<li>Item_2</li>
+<li>Item_3</li>
+</ul>
+

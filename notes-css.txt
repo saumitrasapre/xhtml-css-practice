@@ -1,0 +1,135 @@
+CSS-NOTES-1:
+REFERENCE: CSS INDEX 1
+CSS-CASCADING STYLE SHEETS
+
+when you comment in CSS, use /* comments */ (similar to c/c++)
+when you comment in HTML use <!-- comments -->﻿
+
+Before we begin the beautification using css,we need to include a STYLE tag in the HEAD tag.This specifies the browser that we are using css.
+The style tag takes an attribute called "type" and we must set it equal to "text/css".
+<style type="text/css"> ... </style>
+All the css attributes that we write will be included in the above tag.
+
+Another thing to be remembered is that we can change the properties of a wide variety of elements in the webpage by specifying the selector.
+The selector is usually the thing that goes into the angular brackets of the xhtml tags.All the changes in the properties go inside the style tag.
+The general syntax for changing the properties of elements using css is:
+ selector_name {property1:value1;
+				property2:value2;
+				property3:value3;
+				}
+For example suppose we have a paragraph like:
+<p>This is a paragraph</p>
+ ^This is the selector(ie the value between the angular brackets)
+ In order to change the properties of all the paragraphs in the webpage we write the following inside the style tag:
+ 
+ p {color:blue;----->Sets the color to blue
+	font-family:arial;------>Changes the font to arial
+	}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	COLORS:
+	We can also use RGB values to specify the color of our text. If we want to build a basic website, the specifying the names of the colors will suffice.
+	But if we want some specific color the we can use the RGB/ HEX values.The colors can be picked from any color picker website:
+	https://www.rapidtables.com/web/color/RGB_Color.html
+	The RGB can be specified by preceding the value by a '#' sign.
+	eg. p {color: red;
+			/*OR: color: #rgb_value;*/
+		  }
+		  ^Changes the color of all the paragraphs in our html document to red;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	LINE HEIGHT:
+	We can adjust the space between different lines of the paragraph.This can be done by using the "line-height" property.The line height by default is
+	100%.But we can increase (e.g 150%) or decrease it(e.g. 50%).The syntax is as follows:
+	p {line-height: 150%;
+		}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
+	FONT WEIGHT AND FONT STYLE:
+	We know that we can bold, italicize and underline text using ordinary xhtml tags.We can also do the same using css.The font weight property decides the
+	degree of boldness of a given font. Again , we can also specify the boldness using simple numerical values.The default value is 400. Increasing the value will
+	make the font more bolder and vice versa.Or, we can also specify text values like "normal(400)", "bold(700)", "bolder(bolder than inherited font weight)",
+	"lighter(lighter than inherited font weight)" Syntax:
+	p {font-weight:900;
+		}
+		OR:
+	p  {font-weight:bold;
+		}
+		
+		In order to italicize the text, we use the "font-style" property. We simply specify the keyword "italic" and the font becomes italic.There are several
+		keywords associated with "font-style".Syntax:
+		p {font-style: italic;
+			}
+			In order to underline text, we use  the "text-decoration" property. Under this we can specify whether we want the text to be "underline","overline"
+			"line-through" etc.
+		p{text-decoration: underline green wavy;
+			}
+			See more here: https://css-tricks.com/almanac/properties/t/text-decoration/
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		TEXT ALIGN AND TEXT INDENT:
+		We can also align text in css so that it is aligned to the left(ie the default), the right, or the center. This can be done using the text align property.
+		We just specify the keyword "left", "right" or "center" in order to change the alignment of the different elements of the website.
+		Syntax:
+		p { text-align:center;
+			}
+		In order to indent the paragraph at the beginning, we can use the text-indent property. We can either specify a percentage of the screen size or we can
+		also specify the no of pixels.Syntax:
+		p {text-indent:25px;
+		 }
+		 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------		 
+		BACKGROUND COLOR:
+		If we want to change the background color of our website, we need to change the properties of the body segment. The required keyword for this is:
+		"background-color".Similar to color attribute we can either specify textual values or we can also specify the RGB values.Syntax:
+		body {background-color:yellow;
+			  }
+		If we want to change the color of our whole text in the body, then we use the color tag in the body.If we have already specifid some color to a particular
+		paragraph in the body, then it will remain the same.Syntax:
+		body {color:blue;
+			 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------			 
+		BACKGROUND IMAGES:
+		CAUTION: READ THIS VERY CAREFULLY!
+		Now we come to the interesting part-- adding background images using css.Now adding the background images is very similar to how we add images
+		in xhtml. Before we add an image, we need to ensure that the image file is in our working directory,(or we can also specify a path if we want to).
+		Since we want to add a background image to the entire webpage, we need to modify the body tag.
+		The syntax for adding a background image is:
+		body {background-image: url(insert_image_source_here);
+			 }
+		The url tag is very important, otherwise the image will never get added.
+		CAUTION 1:By default when we add an image, it gets mosiaced onto the entire page. So, the page will look like a collection of tiles with our specified image.
+				In order to remove this repetiton, we modify another property of the body called "background-repeat" and set it to "no-repeat".
+				Syntax:
+				body {background-image: url(cat.jpg);
+					  background-repeat:no-repeat;
+					  }
+		CAUTION 2: Sometimes we can also have an image which we want to repeat, but only horizontally(ie along the x-axis) or only vertically(ie along y-axis).
+					This problem can be solved by setting the "background-repeat" property to "repeat-x"( for repeating an image horizontally) or to "repeat-y"
+					(for repeating an image vertically).
+					Syntax:
+					body {background-image: url(cat.jpg);
+						  background-repeat: repeat-x;
+						  }
+					OR:
+					body {background-image: url(cat.jpg);
+						  background-repeat: repeat-y;
+						  }
+		CAUTION 3: Sometimes we also have to position an image to a particular location rather than keeping it at its default location.This can be done by
+					modifying another property called "background-position".This property takes 2 parameters instead of 1. They are written one after the other
+					with a space in between. The first parameter is the x-distance ie how far to the left do you want the image to be(either in percentages or pixels). The second parameter is the 
+					y-distance ie how far down do you want the image to be(either in percentages or pixels).
+					Syntax:
+					body {background-image: url(cat.jpg);
+						  background-repeat:no-repeat;
+						  background-position:25px 50px;
+						  }
+		CAUTION 4: Sometimes we want the background image to cover a specific percentage of the screen, or to cover the entire screen.This can be made possible
+				   by using the "background-size" property. We can specify the percentage as per our requirement here and specify 100% to cover the entire screen.
+				   Syntax:
+				   body {background-image: url(cat.jpg);
+						 background-repeat: no-repeat;
+						 background-size: 100%;
+						 }
+		CAUTION 5: Sometimes we need to set a particular background to our website which must remain fixed and must not scroll whenever the page ends. This can
+					be achieved using the "background-attachment" property. The background attachment property can have 3 different values:
+					a> Fixed: Background image will not scroll along with the page.
+					b> Scroll: Background image will not scroll along with the page.
+					c> Inherit: Background image will have the same property as that of the parent tag.
+					Learn more here: https://www.w3resource.com/css/background/CSS-background-attachment-property.php

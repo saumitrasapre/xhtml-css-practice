@@ -1,0 +1,96 @@
+CSS-NOTES-3:
+REFERENCE: CSS INDEX 3
+
+STYLING LINKS:
+A hyperlink in css has 4 different states. We can change the properties of each of these states as and when they occur
+There is also another parameter that we can adjust which is "text-decoration". By default it is none But we can set it to "underline",and many other things.
+Refer here: https://css-tricks.com/almanac/properties/t/text-decoration/
+
+1> DEFAULT(link): This state occurs when the user has first visited the website and has never clicked the link.
+				  By default it is blue in color and underlined.We can change any of the aspects like color, background-color, font-family, font-width, font-size,etc.
+				  
+2>VISITED(visited):This state occurs when the user has already visited the website and has clicked the link at least clicked the link once.
+				  By default it is purple in color and underlined.We can change any of the aspects like color, background-color, font-family, font-width, font-size,etc.
+
+3>HOVER (hover):  This state occurs when the user hovers his mouse pointer over the link.It occurs irrespective of whether the user has visited the link or not.
+				  By default it is not present.We can change any of the aspects like color, background-color, font-family, font-width, font-size,etc.
+				 
+4>ACTIVE (active): This state occurs when the user clicks the link with his mouse but has not yet released the mouse click.It occurs irrespective of whether
+				   the user has visited the link or not.By default it is red in color and underlined.We can change any of the aspects like color,
+				   background-color, font-family, font-width, font-size,etc.
+Syntax:
+a:link{/*adjust properties here*/  <------THIS IS THE DEFAULT STATE
+	  }
+
+a:visited{/*adjust properties here*/  <------THIS IS THE VISITED STATE
+	  }
+	  
+a:hover{/*adjust properties here*/  <------THIS IS THE HOVER STATE
+	  }
+
+a:active{/*adjust properties here*/  <------THIS IS THE ACTIVE STATE
+	  }	  
+--------------------------------------------------------------------------------------------------------------------------------------	  
+STYLING TABLES:
+Like any other element that we can style using css, tables work in a similar way.The thing to be remembered is that all the different elements are inherited from
+one another. This means that if we style:
+1>THE TABLE TAG: Then the entire table will get affected.This means that if we set the table border to something, then it will encompass the entire table 
+				 and not the individual cells of the table.Again, if we set the background color to something, then it will ignore the individual cells and just
+				 paint the entire interior of the table to that color.
+
+2> THE TR TAG: Then all the rows of the table will get affected, with complete disregard to the individual cells of the rows. For example, if we set the background
+				color to say yellow, then all the ROWS will get painted yellow and ther will be a teensy white space separating the different rows (assuming we have
+				not given any background color to the table tag).
+			
+3> THE TD TAG: Then all the individual cells will get affected. For example, if we set a blue dotted border to the td tag, then all the individual cells will have
+			   a blue dotted border with a white space separating each of the individual cells.(Assuming that the table tag does not have a background color).
+--------------------------------------------------------------------------------------------------------------------------------------
+STYLING UNORDERED LISTS:
+We have especially considered styling unordered lists because in unordered lists, the elements are listed in filled circular punch-holes as bullet points.
+We--as you might have guessed-- can change these bullet holes into some of the predefined bullet types like:
+1>Square (a filled box)
+2>Circle (an unfilled circle)
+3> None (No bullet points)
+4>Disc (DEFAULT: filled circle)
+This can be done using the "list-style-type" property.Syntax:
+ul { list-style-type: square;
+	}
+OR:
+ul {list-style-type: katakana;
+	}
+
+Read More about it here: https://www.w3schools.com/cssref/pr_list-style-type.asp
+All the built-in examples are shown here: https://www.w3schools.com/cssref/tryit.asp?filename=trycss_list-style-type_all
+
+Sometimes, it may also occur that all the default values may not "tickle your feathers". In such a case, you may also use your own custom image as your bullet
+point.This can be done using the "list-style-image" property.REMEMBER: In css, while using any image, we must use the keyword "url".This is true in this case
+too:
+Syntax:
+ul {list-style-image: url(mybulletpoint.jpg);
+	}
+CAUTION:
+Consider a scenario where you set the list-style-type to "none". We now expect that the list will indeed have no bullet points -- which it indeed doesnt.
+BUT, the text is not automatically skewed to the left once we remove the bullet points.(We shall assume so because the only reason why one might be setting
+the list-style-type to "none" is that  one doesn't want the bullet points and just needs the plain text).
+This problem occurs because the browser assigns a default padding to the list, and we need to explicitly remove the padding in order for the text to skew to
+the left.This can be done by manipulating the "padding" property.
+ul{list-style-type: none;
+	padding-left: 0px;
+	}
+--------------------------------------------------------------------------------------------------------------------------------------
+STYLING MORE THAN ONE ELEMENTS AT A TIME:
+Till now we mentioned each element explicitly and then styled them individually. We may come across scenarios where we may want to style more than one elements
+with the same style.(Give them the same background color, or the font-family for example).
+This can be quite easily done with the help of a short-hand notation. Just write the elements whose properties you want to alter and separate them with commas.
+This can have the following syntax:
+
+element_1, element_2{property_1: value_1;
+					 property_2: value_2;
+					 }
+EXAMPLE:
+h2, p {font-family: Impact,charcoal,sans-serif;
+		color: blue;
+		}
+--------------------------------------------------------------------------------------------------------------------------------------
+
+

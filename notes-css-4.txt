@@ -1,0 +1,184 @@
+CSS-NOTES-4:
+
+SPAN TAGS:
+Sometimes we may encounter a scenario where we want to modify just a part of an element(say a header or a paragraph) and not the entire thing.For example, say we 
+want to change the color and the font-family of only 3 words in the paragraph and not all.In such a case we use a tag called "SPAN". This can be viewed as a
+custom made tag to make minute adjustments to a small part of an entire element.
+The span tag surrounds the part which you want to customise and we can alter the properties of the span tag just like any other element in css.
+Syntax: <span>Your_text_here</span>
+span{color: blue;
+		font-family: arial;
+		font-weight: bold:
+	}
+EXAMPLE:
+<p> This is just <span> a simple </span> sentence. </p>
+If we apply the above css rule to the span tag then only the text "A SIMPLE" will be BOLDED, BLUE-COLORED & HAVE AN ARIAL FONT.
+--------------------------------------------------------------------------------------------------------------------------------------
+DIV TAGS:
+
+This is the most important aspect of css and is very closely related to positioning elements at different locations on screen.
+Till now we had all these different elements like tables, paragraphs, headers,etc one below the other.They can be positioned exacty where we want it using div
+tags.We just surround the element to be positioned with <div>... </div> tags.
+In the css styling section, let us first draw a border around the element, so that it is clear which element is to be positioned.We shall also adjust the width
+of the strip so that it is reduced from the default 100% of screen size.
+IMPORTANT: Just ignore the postion: absolute tag, we shall cover it later on.
+We now set the positioning mode to "absolute".
+Then we can specify THE NUMBER OF PIXELS/PERCENTAGES FROM THE TOP OF THE SCREEN THAT THE ELEMENT IS TO BE PUSHED DOWN using the "top" property.
+We can also specify THE NUMBER OF PIXELS/PERCENTAGES FROM THE LEFT OF THE SCREEN THAT THE ELEMENT IS TO BE PUSHED RIGHT using the "left" property.
+We can also specify THE NUMBER OF PIXELS/PERCENTAGES FROM THE RIGHT OF THE SCREEN THAT THE ELEMENT IS TO BE PUSHED LEFT using the "right" property.
+We can also specify THE NUMBER OF PIXELS/PERCENTAGES FROM THE BOTTOM OF THE SCREEN THAT THE ELEMENT IS TO BE PUSHED UP using the "bottom" property.
+
+For Example:
+div {border: red solid 4px;
+	 width: 200px;
+	 position:absolute;
+	 top: 60px;
+	 right: 40px;
+	 }
+
+<div> This text is positioned at a custom location </div>
+CAUTION:
+ALL THESE COORDINATES ARE MEASURED FROM THE TOP LEFT CORNER OF THE CSS-BOX-MODEL.
+--------------------------------------------------------------------------------------------------------------------------------------
+STYLING USING CLASSES:
+
+Till now, whenever we used a css rule, we wrote the entire element name like p,h1,table,etc. This means that if our webpage contains more than one paragraph,
+then the css rule would get applied to all those paragraphs. There was essentially no useful way to alter the properties of one particular paragraph and 
+leave the other paragraphs and leave all other paragraphs alone.
+Well, it is now possible using "classes".
+
+In order to declare a class, we precede the class name with a period(.)We can name the class as per our wish.This declaration is to be performed in the
+styling section of css.For example:
+.my_class_name{color:red;
+				font-weight: bold;
+				}
+				
+Once we have declared the class name, we need to associate the class with the element(s) whose properties we want to change.THE CLASS NAME (WITHOUT THE PERIOD)
+GOES AS A VALUE OF THE  ATTRIBUTE "CLASS" TO THE ELEMENT TAG WHOSE PROPERTIES WE WANT TO CHANGE.In other words, we now add an attribute
+called "class" to the desired element and set its value equal to the class name(without the period).
+For example:
+<p>This is a paragraph whose properties we wish not to alter</p>
+<p class="my_class_name" >This is a paragraph whose properties we wish to alter</p>
+
+This is very important in those cases where we want to set a particular theme style and apply it to small paragraphs and set another design style and apply it
+to large paragraphs.			
+--------------------------------------------------------------------------------------------------------------------------------------
+STYLING USING ID'S:
+
+The concept of id's is very similar to that of classes. Even though you can use ID's multiple times.(IN THEORY ID'S CAN BE USED WITH ANY OF THE ELEMENTS AND NOT
+JUST DIV)
+The reason why you should use ID's once is because when you start learning complementary skills for web development such as javascript, an element with an ID
+can be targeted with java script to manipulate it in some special way. It may not make sense now but it will once you learn other skills that go along with html﻿.
+But, just remember, USE OF ID'S IS USUALLY WITH DIV TAGS AND MAKE EACH ID UNIQUE. This means that if you want to manipulate 2 divs, then make separate id's 
+for them.
+See here:
+https://css-tricks.com/the-difference-between-id-and-class/
+
+Unlike classes, which are declared in the styling section with the period(.) symbol, we declare the id's with a pound (#) symbol.After writing the styling
+rules for that particular id, we make the ID NAME as an attribute to the required div tag.(Ignore the pound sign while writing the attribute name)For example:
+
+#greenborderdiv {
+				  border: green 4px dashed;
+				  position:absolute;
+				  right: 60px;
+				  top: 400px;
+				  }
+
+#blueborderdiv {
+				  border: blue 3px solid;
+				  position: absolute;
+				  top: 120px;
+				  right: 20px;
+				  }
+
+
+<div id="greenborderdiv">This element is placed at another custom location using div tags and id's</div>
+<div id="blueborderdiv">This is another element which is placed at another custom location using div tags and id's</div>
+--------------------------------------------------------------------------------------------------------------------------------------
+CHILD SELECTORS:
+
+Before we study the concept of child selectors, we need to understand a core concept. A CHILD TAG IS THE ONE WHICH IS NESTED INSIDE ANOTHER TAG. THE TAG INSIDE
+WHICH IT IS NESTED IS CALLED THE "PARENT".
+For example: The <head> tag is inside the <html> tag. So we can say that <head> is the child of <html>. Similarly, since <style> is inside <head>, we can say
+that <style> is the child of <head> and is the grand-child of <html>. Conversely, <html> is the grand-parent of <style> and the parent of <head>.
+
+Now, we may come across scenarios where we want to style elements which are the children of some other parent tags. For example: We may have normal links,
+links inside paragraphs, and links inside header tags. And we want to style only those links which are inside (ie the child of) the paragraph tags.
+We can do so with the help of child selectors:
+We simply write the selector as: parent_selector>child_selector{/*Styling goes here*/;}
+THE GREATER THAN (>) SIGN IS USED TO SIGNIFY A PARENT CHILD RELATIONSHIP:
+For Example: 
+To style only those links inside paragraphs:
+p>a{color: red;}
+
+<p><a href="http://www.google.com">click here!</a></p>
+--------------------------------------------------------------------------------------------------------------------------------------
+STYLING PSEUDO ELEMENTS:
+Pseudo elements can be thought of as pre-defined parts of actual existing elements. Suppose we want to style only the first letter of a paragraph, or the 
+first line of the paragraph. Granted that we can do this with the help of <span> tags, but css has some predefined pseudo elements that can also get the job done
+quickly.
+Remember, these pseudo elements are PRE-DEFINED, meaning that we dont get to choose them.
+The list of all pseudo-elements can be seen here:
+https://www.w3schools.com/css/css_pseudo_elements.asp
+
+Syntax: The syntax for using a pseudo element is as follows:
+selector:pseudo-element{property:value;}
+
+Example:
+p:first-letter {color:red;
+				font-family:arial;
+				font-size:30px;
+				}
+The above styling rules only apply to the FIRST-LETTER of all the paragraphs in our webpage.
+--------------------------------------------------------------------------------------------------------------------------------------
+EXTERNAL STYLE SHEETS:
+A website is a collection of an astonishingly large number of webpages. Usually most of the websites follow a particular theme. For Example: In all the websites,
+the paragraphs are formatted in a particular way, the headers are formatted in some other way, and so on. If a programmer wishes to change some of the aspects
+of the theme, then without external style sheeting, he would have to change all the webpages individually, which is a tedious task.
+
+In order to solve this problem, we are intoduced with the concept of external style sheeting. Here we define the crux content of all the webpages, ie the paras,
+headers, links,etc in different xhtml webpages and we apply the same css rule to all these webpages by creating an external style sheet having a format .css.
+
+This file contains all the formating rules which we wish to apply to the webpages as a bulk. REMEMBER, WE DO NOT NEED <style> TAGS ANYMORE, NEITHER IN THE
+WEBPAGE, NOR IN THE EXTERNAL STYLE SHEET. JUST SIMPLY WRITE THE CSS RULES IN A SEPARATE TEXT DOCUMENT AND SAVE IT AS A .css FILE.
+
+After defining the css rules, we need to link the css file inside the xhtml webpage. This can be done using the <link /> tag.This tag goes 
+inside the <head> tag.
+IT IS A SINGLE TAG AND TAKES 3 ATTRIBUTES.
+1>rel -->Relation: Defines the relationship between the xhtml file and the file which we wish to link to the page.
+					For .css file it is equal to "stylesheet".
+					
+					
+2>type --> Type: Specifies the type of file which we wish to link. For .css files it is equal to "text/css".
+
+3> href --> Filename: Specifies the actual file which we wish to link. Similar to anchor tags we specify the "filename.css" as the value of this attribute.
+For Example:
+
+<link rel="stylesheet" type="text/css" href="ugandanchungus.css" />  
+Any changes we make to the .css file will affect all the webpages to which it has been linked.
+--------------------------------------------------------------------------------------------------------------------------------------
+OVERRIDING STYLES:
+
+Just to recap previously, we made an external style sheet which contained all the basic css rules on how to style paragraphs, headers, links, etc, and 
+saved it as a .css file.To whichever webpage we imported it using the <link /> tags (which took in 3 attributes (rel, type, href)),that particular webpage was
+styled in that particular way.
+Now, if suppose we want to make some changes to one of the many webpages to which we have imported the standard theme using the <link /> tags, we can do so
+by OVERRIDING THE ALREADY PRESENT STYLE.
+
+THUMB RULE: In css, if 2 same elements are styled in a conflicting way (eg if 2 <h2>'s are styled as color: green, and color:blue) then css condsiders the
+			most recent styling applied to that particular selector.So if color: green is written after color:blue then the header will be styled green and NOT
+			BLUE. It is like saying, "first style my header blue and then style it green". So, ultimately, it is styled green.
+			
+Now, if we want to make some changes to one of the many webpages to which we have imported the standard theme, WE NOW USE THE <style> TAGS AND WRITE THE
+FINE TUNING OF THAT WEBPAGE.
+This is how most websites are made! All the coarse adjustment is imported using the <link /> tags and all the nitty-gritty stuff is fine tuned using the style
+tags.
+Since <style> tags are (usually) written below the <link /> tags, the theme is now overridden as css considers the most recent adjustment of the two
+(in case of the same selector element).
+
+
+
+
+
+
+

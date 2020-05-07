@@ -1,0 +1,130 @@
+<!Doctype html>
+<html>
+<head>
+<title>The third CSS page</title>
+<style type ="text/css">
+
+a:link{ color:blue;
+		text-decoration:none;
+		}
+a:visited{color: green;
+		text-decoration:underline;
+		 }
+a:hover{ color:red;
+		background-color:yellow;
+		text-decoration:underline;
+		}
+a:active{
+			background-color:orange;
+			color:white;
+			text-decoration:underline  wavy green;
+		}
+
+table { border:4px red solid;
+		}
+	tr { background-color: yellow
+		}
+		td{border: 4px blue dotted;
+			}
+	
+ul {list-style-image:url(mybullet.gif);
+	}
+
+span{color: blue;
+	 font-style:italic;
+	 font-family:Impact,charcoal,sans-serif;
+	 }
+
+div {border: red solid 4px;
+	 width: 200px;
+	 position:absolute;
+	 top: 60px;
+	 right: 40px;
+	 }
+	
+.yellowoverblack{color: yellow;
+					background-color: black;
+				}
+.impactfont{color:red;
+			font-family: Impact,charcoal,sans-serif;
+			}
+.arialblue{color:blue;
+			font-family:arial;
+			}
+
+#greenborderdiv {
+				  border: green 4px dashed;
+				  position:absolute;
+				  right: 60px;
+				  top: 400px;
+				  }
+
+#blueborderdiv {
+				  border: blue 3px solid;
+				  position: absolute;
+				  top: 120px;
+				  right: 20px;
+				  }
+					
+body{ 
+	//position:fixed;
+	background-image: url(cat.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	background-attachment:fixed;
+	}
+
+			
+</style>
+
+</head>
+<body>
+<h1>Styling links example</h1>
+
+<a href="https://www.google.com" title="Google">This will be a link to google</a>
+<br />
+<h2>Styling tables Example</h2>
+The following table has 2 rows and 3 columns.
+<br /><br /><br />
+<table border="2px">
+<tr>
+<td>Bacon</td>
+<td>and</td>
+<td>Eggs</td
+</tr>
+
+<tr>
+<td>Apples</td>
+<td>and</td>
+<td>Bananas</td
+</tr>
+
+</table>
+
+<h3>This is an example of styling unordered lists</h3>
+<br />
+
+<ul>
+<li>Using </li>
+<li>a custom </li>
+<li>image </li>
+<li>as the </li>
+<li>bullet </li>
+</ul>
+<p>This is a normal paragraph of which <span> this particular part </span> is changed using the span tag</p>
+
+<div>This element is positioned at a custom location using div tags</div>
+
+<h4>The following examples are paragraphs manipulated using classes</h4>
+
+<p class="yellowoverblack">This paragraph has text color yellow and black background</p>
+<p class="impactfont">This paragraph has text color red and font impact</p>
+<p class="arialblue">This paragraph has text color blue and font arial</p>
+
+<div id="greenborderdiv">This element is placed at another custom location using div tags and id's</div>
+<div id="blueborderdiv">This is another element which is placed at another custom location using div tags and id's</div>
+
+
+
+</body>
+</html>
